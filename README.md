@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="public/math-mash-logo.png" alt="Math Mash Logo" width="200" />
+</p>
+
 # Math Mash - Math Game for Kids
 
 A math game built with React (Vite) and Phaser 3 game engine. Designed to be fun and educational for kids.

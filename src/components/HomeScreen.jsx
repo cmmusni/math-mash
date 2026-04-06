@@ -86,6 +86,7 @@ export default function HomeScreen() {
   return (
     <div className="home-screen">
       <div className="home-header">
+        <img src="/math-mash-logo.png" alt="Math Mash" className="home-logo" />
         <h1 className="home-title">🎮 Math Mash</h1>
         <p className="home-subtitle">Choose a Game Mode</p>
       </div>
