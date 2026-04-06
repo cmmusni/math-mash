@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Math Mash</string>
+    <string name="title_activity_main">Math Mash</string>
+    <string name="package_name">com.mathmash.app</string>
+    <string name="custom_url_scheme">com.mathmash.app</string>
+</resources>
