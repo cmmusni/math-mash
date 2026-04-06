@@ -161,4 +161,25 @@ export default class SoundManager {
   isMuted() {
     return this.isMuted;
   }
+
+  /**
+   * Speak a message using Web Speech API
+   */
+  speak(text) {
+    if (!window.speechSynthesis) return;
+    window.speechSynthesis.cancel();
+
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.rate = 0.9;
+    utterance.pitch = 1.2;
+    utterance.volume = 0.8;
+
+    const voices = window.speechSynthesis.getVoices();
+    const preferred = voices.find(v =>
+      v.name.includes('Samantha') || v.name.includes('Google') || v.lang.startsWith('en')
+    );
+    if (preferred) utterance.voice = preferred;
+
+    window.speechSynthesis.speak(utterance);
+  }
 }

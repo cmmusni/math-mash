@@ -605,6 +605,9 @@ export default class DropScene extends Phaser.Scene {
 
     if (this.soundManager) {
       this.soundManager.play('level_failed');
+      const phrases = ['Game over! Nice try!', 'Good game! Play again?', 'So close! Try again!', 'Great effort! One more time!'];
+      const phrase = phrases[Math.floor(Math.random() * phrases.length)];
+      this.time.delayedCall(600, () => this.soundManager.speak(phrase));
     }
 
     // Destroy falling block

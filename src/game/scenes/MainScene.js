@@ -332,9 +332,12 @@ export default class MainScene extends Phaser.Scene {
   completeLevelFailed() {
     const { width, height } = this.scale;
 
-    // Play failure sound
+    // Play failure sound and voice
     if (this.soundManager) {
       this.soundManager.play('level_failed');
+      const phrases = ['Oh no! Try again!', 'Almost! Give it another shot!', 'Don\'t give up! You can do it!', 'So close! Try one more time!'];
+      const phrase = phrases[Math.floor(Math.random() * phrases.length)];
+      this.time.delayedCall(600, () => this.soundManager.speak(phrase));
     }
 
     // Disable input on blocks
@@ -443,9 +446,12 @@ export default class MainScene extends Phaser.Scene {
     // Clear save since level is done
     gameStore.clearGameState(this.gameMode);
 
-    // Play success sound
+    // Play success sound and voice
     if (this.soundManager) {
       this.soundManager.play('level_complete');
+      const phrases = ['Great job!', 'Amazing! You did it!', 'Awesome work!', 'You\'re a math star!', 'Fantastic!'];
+      const phrase = phrases[Math.floor(Math.random() * phrases.length)];
+      this.time.delayedCall(600, () => this.soundManager.speak(phrase));
     }
 
     // Check if there are more levels
@@ -502,6 +508,9 @@ export default class MainScene extends Phaser.Scene {
       });
     } else {
       // Game complete! All levels finished
+      if (this.soundManager) {
+        this.time.delayedCall(600, () => this.soundManager.speak('Congratulations! You finished all the levels! You are a math champion!'));
+      }
       const { width, height } = this.scale;
       const message = this.add.text(
         width / 2,
